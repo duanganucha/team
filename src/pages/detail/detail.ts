@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MapPage } from '../map/map';
+import { CallNumber } from '@ionic-native/call-number';
 
-/**
- * Generated class for the DetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +11,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  item;
+  constructor(
+    private callNumber: CallNumber,
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
+     this.item = this.navParams.get('item');
+      console.log(this.item)
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailPage');
+  openMap(){
+    console.log(this.item)
+    this.navCtrl.push(MapPage,{ item : this.item });
+  }
+
+
+  onCallPhone(){
+    this.callNumber.callNumber(this.item.telNumber, true)
   }
 
 }
