@@ -19,6 +19,8 @@ import { DetailPage } from '../pages/detail/detail';
 import { MapPage } from './../pages/map/map';
 import { AgmCoreModule } from '@agm/core';
 import { CallNumber } from '@ionic-native/call-number';
+import { Geolocation } from '@ionic-native/geolocation';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 @NgModule({
   declarations: [
@@ -49,8 +51,8 @@ import { CallNumber } from '@ionic-native/call-number';
   providers: [
     StatusBar,
     SplashScreen,
-    AngularFireDatabase,
-    CallNumber,
+    AngularFireDatabase,Geolocation,
+    CallNumber,LaunchNavigator,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

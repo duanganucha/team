@@ -1,7 +1,6 @@
-
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>detail</ion-title>
   </ion-navbar>
 
@@ -9,17 +8,23 @@
 
 
 <ion-content padding>
-  <img src="{{item.imageBase64}}">
-  <p>{{ item.clienttime | date: 'dd/MM/yyyy - HH:mm' }}</p>
+  <img src="{{item.imageBase64}}" class="center">
+
 
   <ion-list>
+
+      <ion-item>
+          <ion-icon name="ios-timer-outline" item-start></ion-icon>
+        <p>เวลารับเหตุ : {{ item.clienttime | date: 'dd/MM/yyyy - HH:mm' }}</p>
+      </ion-item>
+      
     <ion-item>
-      <ion-icon name="ios-car" item-start></ion-icon>
+      <ion-icon name="ios-body" item-start></ion-icon>
       {{ item.scene }}
     </ion-item>
 
     <ion-item (click)="onCallPhone()">
-      <ion-icon name="md-phone-portrait" item-start ></ion-icon>
+      <ion-icon name="md-phone-portrait" item-start></ion-icon>
       {{ item.telNumber }}
       <ion-icon name="md-call" item-end></ion-icon>
     </ion-item>
